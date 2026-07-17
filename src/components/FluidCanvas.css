@@ -1,0 +1,13 @@
+.fluid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  mix-blend-mode: multiply;
+}
+
+[data-theme='dark'] .fluid-canvas {
+  mix-blend-mode: screen;
+}
