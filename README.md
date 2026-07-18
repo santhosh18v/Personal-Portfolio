@@ -107,6 +107,12 @@ Portfolio/
 - LinkedIn: [linkedin.com/in/thunga-santhosh-reddy](https://linkedin.com/in/thunga-santhosh-reddy)
 - GitHub: [github.com/santhosh18v](https://github.com/santhosh18v)
 
+
+
+## Live Portfolio
+
+The portfolio is deployed on Vercel.
+
 ## Usage Note
 
 This repository contains a personal portfolio and its associated content. No open-source license is included. Please contact the owner before reusing the design, content, or personal assets.
