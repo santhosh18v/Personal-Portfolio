@@ -18,11 +18,6 @@ const SkillsSection = () => {
       skills: ['Java', 'Python', 'JavaScript', 'TypeScript', 'SQL'],
     },
     {
-      title: 'Databases',
-      icon: <Database size={24} aria-hidden="true" />,
-      skills: ['PostgreSQL', 'MongoDB', 'Neon PostgreSQL'],
-    },
-    {
       title: 'Frontend & Web',
       icon: <Workflow size={24} aria-hidden="true" />,
       skills: ['HTML5', 'CSS3', 'React.js', 'Next.js', 'Tailwind CSS', 'Shadcn UI'],
@@ -38,6 +33,11 @@ const SkillsSection = () => {
         'Role-Based Access Control',
         'Prisma ORM',
       ],
+    },
+    {
+      title: 'Databases',
+      icon: <Database size={24} aria-hidden="true" />,
+      skills: ['PostgreSQL', 'MongoDB', 'Neon PostgreSQL'],
     },
     {
       title: 'AI & Machine Learning',
@@ -57,7 +57,7 @@ const SkillsSection = () => {
     {
       title: 'Tools & Platforms',
       icon: <GitBranch size={24} aria-hidden="true" />,
-      skills: ['Git', 'GitHub', 'Docker', 'Render', 'VS Code'],
+      skills: ['Git', 'GitHub', 'Docker', 'Vercel', 'Render', 'VS Code'],
     },
     {
       title: 'Core Computer Science',

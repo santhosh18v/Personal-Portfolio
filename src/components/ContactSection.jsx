@@ -16,9 +16,9 @@ const ContactSection = () => {
             </p>
 
             <div className="contact-details">
-              <a href="mailto:santhoshthunga297@gmail.com" className="contact-item">
+              <a href="mailto:thungasanthoshkumarreddy@gmail.com" className="contact-item">
                 <div className="contact-icon"><Mail size={24} aria-hidden="true" /></div>
-                <span>santhoshthunga297@gmail.com</span>
+                <span>thungasanthoshkumarreddy@gmail.com</span>
               </a>
               
               <a href="tel:+919014743783" className="contact-item">
@@ -39,7 +39,7 @@ const ContactSection = () => {
           </div>
 
           <div className="contact-form-wrapper">
-            <form action="https://formsubmit.co/santhoshthunga297@gmail.com" method="POST" className="contact-form">
+            <form action="https://formsubmit.co/thungasanthoshkumarreddy@gmail.com" method="POST" className="contact-form">
               <input type="hidden" name="_subject" value="New message from portfolio!" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />

@@ -22,11 +22,12 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
   const navLinks = [
     { name: 'Home', to: 'hero' },
     { name: 'About', to: 'about' },
+    { name: 'Services', to: 'services' },
     { name: 'Skills', to: 'skills' },
     { name: 'Projects', to: 'projects' },
     { name: 'Experience', to: 'experience' },
     { name: 'Education', to: 'education' },
-    { name: 'Credentials', to: 'certifications' },
+    { name: 'Certifications', to: 'certifications' },
     { name: 'Contact', to: 'contact' },
   ];
 

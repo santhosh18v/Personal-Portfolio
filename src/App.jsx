@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
+import ServicesSection from './components/ServicesSection';
 import SkillsSection from './components/SkillsSection';
 import CertificationsSection from './components/CertificationsSection';
 import ProjectsSection from './components/ProjectsSection';
@@ -39,6 +40,7 @@ function App() {
       <main>
         <HeroSection />
         <AboutSection />
+        <ServicesSection />
         <SkillsSection />
         <ProjectsSection />
         <ExperienceSection />

@@ -19,8 +19,8 @@ const EducationSection = () => {
       details: 'Percentage: 96.4%',
     },
     {
-      institution: 'Viswa Vijetha High School',
-      location: 'Kadiri, Andhra Pradesh',
+      institution: 'Vishwa Vijetha High School',
+      location: 'Gandlapenta, Andhra Pradesh',
       degree: 'Matriculation',
       period: '2020 - 2021',
       details: 'Percentage: 99.5%',

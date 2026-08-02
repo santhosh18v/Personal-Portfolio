@@ -12,6 +12,7 @@ This portfolio presents my technical background, featured projects, training exp
 - Dark and light themes
 - Professional Hero section
 - About section
+- Services and strengths overview
 - Categorized technical skills
 - Featured AI and full-stack projects
 - Internship and experience section
@@ -38,19 +39,28 @@ This portfolio presents my technical background, featured projects, training exp
 1. Navigation
 2. Hero
 3. About
-4. Technical Skills
-5. Featured Projects
-6. Training and Experience
-7. Education
-8. Certifications and Achievements
-9. Contact
-10. Footer
+4. Services
+5. Technical Skills
+6. Featured Projects
+7. Training and Experience
+8. Education
+9. Certifications and Achievements
+10. Contact
+11. Footer
 
 ## Featured Projects
+
+### ForgeAI
+
+A CLI-first local AI orchestration platform that coordinates specialized agents to design, implement, test, validate, and document backend software.
 
 ### DentOS AI
 
 A multi-tenant dental clinic management SaaS platform with secure authentication, role-based access control, clinic-level tenant isolation, patient and appointment management, billing, analytics, and AI-assisted clinical note generation.
+
+### AgriAI
+
+An AI-powered smart agriculture platform that helps farmers identify crop diseases, receive farming recommendations, and manage agricultural information.
 
 ### LipSpeak
 
@@ -103,7 +113,7 @@ Portfolio/
 
 **Thunga Santhosh Kumar Reddy**
 
-- Email: [santhoshthunga297@gmail.com](mailto:santhoshthunga297@gmail.com)
+- Email: [thungasanthoshkumarreddy@gmail.com](mailto:thungasanthoshkumarreddy@gmail.com)
 - LinkedIn: [linkedin.com/in/thunga-santhosh-reddy](https://linkedin.com/in/thunga-santhosh-reddy)
 - GitHub: [github.com/santhosh18v](https://github.com/santhosh18v)
 
