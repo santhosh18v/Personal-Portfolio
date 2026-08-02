@@ -94,6 +94,7 @@
 
 .hero-actions > .btn {
   gap: 0.5rem;
+  white-space: nowrap;
 }
 
 .hero-socials {

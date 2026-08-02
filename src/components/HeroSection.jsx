@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-scroll';
-import { Download, FileText, Github, Linkedin } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 import './HeroSection.css';
 
 const HeroSection = () => {
@@ -20,23 +20,9 @@ const HeroSection = () => {
             <Link to="contact" smooth={true} duration={500} offset={-80} className="btn btn-primary">
               Contact Me
             </Link>
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline"
-            >
-              <FileText size={18} aria-hidden="true" />
-              View Resume
-            </a>
-            <a
-              href="/resume.pdf"
-              download="Thunga-Santhosh-Kumar-Reddy-Resume.pdf"
-              className="btn btn-outline"
-            >
-              <Download size={18} aria-hidden="true" />
-              Download Resume
-            </a>
+            <Link to="projects" smooth={true} duration={500} offset={-80} className="btn btn-outline">
+              View Work
+            </Link>
             <div className="hero-socials">
               <a href="https://github.com/santhosh18v" target="_blank" rel="noopener noreferrer" className="hero-social-icon" aria-label="GitHub profile">
                 <Github size={24} aria-hidden="true" />

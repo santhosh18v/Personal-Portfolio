@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, FileText } from 'lucide-react';
+import { Download } from 'lucide-react';
 import './AboutSection.css';
 
 const AboutSection = () => {
@@ -15,15 +15,6 @@ const AboutSection = () => {
           </p>
         </div>
         <div className="about-action">
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-outline"
-          >
-            <FileText size={18} aria-hidden="true" />
-            View Resume
-          </a>
           <a
             href="/resume.pdf"
             download="Thunga-Santhosh-Kumar-Reddy-Resume.pdf"
