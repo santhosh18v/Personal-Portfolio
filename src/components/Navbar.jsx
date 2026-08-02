@@ -55,7 +55,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
             </Link>
           ))}
           <a
-            href="/Santhosh-Resume.pdf"
+            href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="mobile-resume-link"
@@ -67,7 +67,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 
         <div className="nav-actions">
           <a
-            href="/Santhosh-Resume.pdf"
+            href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-outline nav-resume-btn"

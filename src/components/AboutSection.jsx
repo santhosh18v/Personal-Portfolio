@@ -16,7 +16,7 @@ const AboutSection = () => {
         </div>
         <div className="about-action">
           <a
-            href="/Santhosh-Resume.pdf"
+            href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-outline"
@@ -25,7 +25,7 @@ const AboutSection = () => {
             View Resume
           </a>
           <a
-            href="/Santhosh-Resume.pdf"
+            href="/resume.pdf"
             download="Thunga-Santhosh-Kumar-Reddy-Resume.pdf"
             className="btn btn-primary"
           >
