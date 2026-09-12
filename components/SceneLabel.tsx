@@ -1,0 +1,1 @@
+export default function SceneLabel({name,number}:{name:string;number:string}){return <div className="section-label"><span className="eyebrow">{name}</span><span className="scene-num">{number} / 08</span></div>}

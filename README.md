@@ -1,128 +1,57 @@
-# Thunga Santhosh Kumar Reddy — Personal Portfolio
+# Santhosh — Engineering Universe
 
-A modern, responsive portfolio showcasing my work as an aspiring AI Engineer and Full Stack Developer.
+The cinematic portfolio of Thunga Santhosh Kumar Reddy, featuring full-stack applications and AI engineering projects. This repository contains the current portfolio design from [Engineering Universe](https://santhosh-engineering-universe.thungasanthoshkumarr.chatgpt.site/), adapted to run with standard Next.js.
 
-## Project Overview
+## Included
 
-This portfolio presents my technical background, featured projects, training experience, education, certifications, and contact information in a polished single-page interface. It is designed to provide recruiters and collaborators with a clear overview of my work across artificial intelligence, machine learning, and full-stack development.
+- Eight sections: Home, About, Engineering Universe, Selected Work, Journey, Education, Philosophy, and Contact.
+- Case studies for ForgeAI, DentOS AI, AgriAI, and LipSpeak, with their GitHub or live demo links.
+- The updated black-suit portrait, résumé, contact links, and social profiles.
+- Madanapalle Institute of Technology and Science, graduation year 2027, and the supplied Microsoft and Oracle certificate titles.
+- Responsive navigation, native section and project links, cinematic scroll effects, and reduced-motion support.
+- Self-hosted fonts, local images, and an optional Three.js atmosphere with a graceful fallback.
 
-## Features
+## Run locally
 
-- Responsive modern interface for desktop, tablet, and mobile devices
-- Dark and light themes
-- Professional Hero section
-- About section
-- Services and strengths overview
-- Categorized technical skills
-- Featured AI and full-stack projects
-- Internship and experience section
-- Education section
-- Certifications and achievements
-- Contact links
-- Viewable and downloadable resume
-- Responsive profile photo
-- Fluid animated background
-- Accessibility and reduced-motion support
+Use Node.js 22.13 or later and npm.
 
-## Technologies Used
-
-- React
-- Vite
-- JavaScript
-- CSS
-- Lucide React
-- Git
-- GitHub
-
-## Portfolio Sections
-
-1. Navigation
-2. Hero
-3. About
-4. Services
-5. Technical Skills
-6. Featured Projects
-7. Training and Experience
-8. Education
-9. Certifications and Achievements
-10. Contact
-11. Footer
-
-## Featured Projects
-
-### ForgeAI
-
-A CLI-first local AI orchestration platform that coordinates specialized agents to design, implement, test, validate, and document backend software.
-
-### DentOS AI
-
-A multi-tenant dental clinic management SaaS platform with secure authentication, role-based access control, clinic-level tenant isolation, patient and appointment management, billing, analytics, and AI-assisted clinical note generation.
-
-### AgriAI
-
-An AI-powered smart agriculture platform that helps farmers identify crop diseases, receive farming recommendations, and manage agricultural information.
-
-### LipSpeak
-
-An AI-powered lip-reading system that predicts spoken words from silent video sequences using machine learning, deep learning, and computer vision workflows.
-
-## Local Installation
-
-### Prerequisites
-
-- Node.js
-- npm
-
-### Setup
-
-```bash
-cd Portfolio
-npm install
+```sh
+npm ci
 npm run dev
 ```
 
-Open the local URL displayed by Vite in your terminal.
+Open `http://localhost:3000`.
 
-## Available npm Scripts
-
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Starts the Vite development server. |
-| `npm run build` | Creates an optimized production build. |
-| `npm run lint` | Runs ESLint across the project. |
-| `npm run preview` | Serves the production build locally for preview. |
-
-## Project Structure
-
-```text
-Portfolio/
-├── public/              # Public images, resume, and static assets
-├── src/
-│   ├── assets/          # Source-managed visual assets
-│   ├── components/      # Portfolio section components and styles
-│   ├── App.jsx          # Main application composition
-│   ├── App.css          # Application-level styles
-│   ├── index.css        # Global theme and shared styles
-│   └── main.jsx         # React application entry point
-├── index.html           # Vite HTML entry point
-├── package.json         # Dependencies and npm scripts
-└── vite.config.js       # Vite configuration
+```sh
+npm run build
+npm start
 ```
 
-## Contact
+`npm run typecheck` checks TypeScript. `npm run lint` runs ESLint.
 
-**Thunga Santhosh Kumar Reddy**
+## Deploy to Vercel
 
-- Email: [thungasanthoshkumarreddy@gmail.com](mailto:thungasanthoshkumarreddy@gmail.com)
-- LinkedIn: [linkedin.com/in/thunga-santhosh-reddy](https://linkedin.com/in/thunga-santhosh-reddy)
-- GitHub: [github.com/santhosh18v](https://github.com/santhosh18v)
+Import or reconnect `santhosh18v/Personal-Portfolio` with the repository root as the project root. The committed `vercel.json` selects Next.js, `npm ci`, `npm run build`, and `.next` output so this repository no longer uses the previous Vite build configuration.
 
+Canonical metadata uses Vercel's production domain automatically. For another host or an explicit custom domain, set `SITE_URL` to the full HTTPS URL before building; see `.env.example`. No API keys or ChatGPT Sites account are needed to run this portfolio.
 
+## Edit content
 
-## Live Portfolio
+| File | Content |
+| --- | --- |
+| `data/projects.ts` | Featured projects, case studies, technologies, and destination links |
+| `data/skills.ts` | Technology groups |
+| `data/journey.ts` | Journey chapters |
+| `data/education.ts` | College, graduation year, and certifications |
+| `data/socials.ts` | Email, phone, résumé, social links, and canonical URL |
+| `components/scenes/HeroScene.tsx` | Opening portrait and role text |
+| `app/globals.css` | Shared visual design and responsive styles |
+| `public/resume.pdf` | Downloadable résumé |
 
-The portfolio is deployed on Vercel.
+Project routes are `/work/forgeai`, `/work/dentos-ai`, `/work/agriai`, and `/work/lipspeak`.
 
-## Usage Note
+## Assets and usage
 
-This repository contains a personal portfolio and its associated content. No open-source license is included. Please contact the owner before reusing the design, content, or personal assets.
+See `ASSET_CREDITS.md` for image and font credits. The project displays are conceptual interface illustrations. The reference video is not included in the site.
+
+This is a personal portfolio with no open-source license. Please contact the owner before reusing the design, content, or personal assets.
