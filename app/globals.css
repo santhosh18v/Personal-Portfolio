@@ -3814,6 +3814,29 @@ body:after {
     min-height: 44px;
   }
 }
+/* Keep mobile case-study links in their own scrollable row. */
+@media (width < 768px) {
+  .case-contents {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .case-contents nav {
+    flex-wrap: nowrap;
+    min-width: 0;
+    max-width: 100%;
+    gap: 20px;
+    padding: 8px 8px 12px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--project-accent) transparent;
+  }
+  .case-contents a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}
 @media (max-width: 430px) {
   .hero-content {
     padding-top: 340px;
@@ -4026,6 +4049,39 @@ body:after {
 .hero:focus-within *,
 .site-nav[data-opening]:focus-within {
   animation: none !important;
+}
+/* Fit the two-line name into its approved space without shifting the hero. */
+.hero h1 {
+  --name-secondary-reserve: clamp(27px, 3.07vw, 51px);
+  --name-gap-reserve: 14px;
+  height: calc(
+    0.9em + 1.02 * var(--name-secondary-reserve) + var(--name-gap-reserve)
+  );
+}
+.hero h1 .hero-name {
+  font-size: 0.9em;
+  line-height: 0.78;
+  white-space: nowrap;
+}
+.hero h1 .hero-surname {
+  font-family: inherit;
+  font-size: 0.54em;
+  font-weight: inherit;
+  line-height: 0.72;
+  letter-spacing: -0.015em;
+  margin: 2px 0 0;
+  white-space: nowrap;
+}
+@media (max-width: 800px) {
+  .hero h1 {
+    --name-secondary-reserve: 4.25vw;
+    --name-gap-reserve: 12px;
+  }
+}
+@media (max-width: 430px) {
+  .hero h1 {
+    --name-secondary-reserve: 4.6vw;
+  }
 }
 @media (max-width: 390px) {
   .project-visual,
