@@ -1,6 +1,122 @@
-import {ArrowUpRight,ArrowDown} from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, ArrowDown } from "lucide-react";
 import SceneLabel from "@/components/SceneLabel";
 import ProjectVisual from "@/components/ProjectVisual";
-import {projects} from "@/data/projects";
-import type {CSSProperties} from "react";
-export default function ProjectUniverse(){return <section className="project-universe" id="work" data-scene="04" aria-labelledby="work-title"><div className="work-heading section-pad"><SceneLabel name="Ideas made real" number="04"/><div className="work-heading-row"><h2 className="display-title" id="work-title" data-reveal>SELECTED<br/><span className="amber">WORK.</span></h2><div><p className="section-intro">Systems built to solve<br/>real problems.</p><ArrowDown size={32} strokeWidth={1}/></div></div><nav className="work-index" aria-label="Selected projects">{projects.map(p=><a key={p.id} href={`#${p.id}`}><span>{p.number}</span>{p.title}</a>)}</nav></div><div className="project-exhibition">{projects.map(project=><article className={`project-scene ${project.id}`} key={project.id} id={project.id} style={{'--project-accent':project.accent} as CSSProperties} aria-labelledby={`${project.id}-title`}><div className="project-top"><span className="eyebrow">{project.discipline}</span><span className="scene-num">{project.number} / 04</span></div><div className="project-body"><div className="project-copy"><span className="project-ghost" aria-hidden="true">{project.number}</span><h3 id={`${project.id}-title`}>{project.title}</h3><p className="project-subtitle">{project.subtitle}</p><p className="project-description">{project.description}</p><div className="project-actions"><a className="text-link" href={`/work/${project.id}`}>Explore project <ArrowUpRight/></a>{project.github&&<a className="text-link" href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} on GitHub`}>GitHub <ArrowUpRight/></a>}{project.live&&<a className="text-link" href={project.live} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} live demo`}>Live demo <ArrowUpRight/></a>}</div></div><a className="screen-stage" href={`/work/${project.id}`} aria-label={`Explore ${project.title} case study`}><div className="exhibition-screen"><ProjectVisual id={project.id}/></div><span className="screen-view">VIEW CASE STUDY <ArrowUpRight size={15}/></span></a></div><div className="project-bottom"><ul className="technology-list">{project.technologies.map(t=><li key={t}>{t}</li>)}</ul><span className="project-chapter">ENGINEERING UNIVERSE — CHAPTER {project.number}</span></div></article>)}</div></section>}
+import { projects } from "@/data/projects";
+import type { CSSProperties } from "react";
+export default function ProjectUniverse() {
+  return (
+    <section
+      className="project-universe"
+      id="work"
+      data-scene="04"
+      aria-labelledby="work-title"
+    >
+      <div className="work-heading section-pad">
+        <SceneLabel name="Ideas made real" number="04" />
+        <div className="work-heading-row">
+          <h2 className="display-title" id="work-title" data-reveal>
+            SELECTED
+            <br />
+            <span className="amber">WORK.</span>
+          </h2>
+          <div>
+            <p className="section-intro">
+              Systems built to solve
+              <br />
+              real problems.
+            </p>
+            <ArrowDown size={32} strokeWidth={1} />
+          </div>
+        </div>
+        <nav className="work-index" aria-label="Selected projects">
+          {projects.map((p) => (
+            <a key={p.id} href={`#${p.id}`}>
+              <span>{p.number}</span>
+              {p.title}
+            </a>
+          ))}
+        </nav>
+      </div>
+      <div className="project-exhibition">
+        {projects.map((project) => (
+          <article
+            className={`project-scene ${project.id}`}
+            key={project.id}
+            id={project.id}
+            style={{ "--project-accent": project.accent } as CSSProperties}
+            aria-labelledby={`${project.id}-title`}
+          >
+            <div className="project-top">
+              <span className="eyebrow">{project.discipline}</span>
+              <span className="scene-num">{project.number} / 04</span>
+            </div>
+            <div className="project-body">
+              <div className="project-copy">
+                <span className="project-ghost" aria-hidden="true">
+                  {project.number}
+                </span>
+                <h3 id={`${project.id}-title`}>{project.title}</h3>
+                <p className="project-subtitle">{project.subtitle}</p>
+                <p className="project-description">{project.description}</p>
+                <div className="project-actions">
+                  <Link
+                    className="text-link"
+                    href={`/work/${project.id}`}
+                    aria-label={`Explore ${project.title} project`}
+                  >
+                    Explore project <ArrowUpRight aria-hidden="true" />
+                  </Link>
+                  {project.github && (
+                    <a
+                      className="text-link"
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${project.title} on GitHub`}
+                    >
+                      GitHub <ArrowUpRight />
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      className="text-link"
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${project.title} live demo`}
+                    >
+                      Live demo <ArrowUpRight />
+                    </a>
+                  )}
+                </div>
+              </div>
+              <Link
+                className="screen-stage"
+                href={`/work/${project.id}`}
+                aria-label={`Explore ${project.title} case study`}
+              >
+                <div className="exhibition-screen">
+                  <ProjectVisual id={project.id} />
+                </div>
+                <span className="screen-view">
+                  VIEW CASE STUDY <ArrowUpRight size={15} aria-hidden="true" />
+                </span>
+              </Link>
+            </div>
+            <div className="project-bottom">
+              <ul className="technology-list">
+                {project.technologies.map((t) => (
+                  <li key={t}>{t}</li>
+                ))}
+              </ul>
+              <span className="project-chapter">
+                ENGINEERING UNIVERSE — CHAPTER {project.number}
+              </span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}

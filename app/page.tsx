@@ -8,6 +8,26 @@ import EducationScene from "@/components/scenes/EducationScene";
 import PhilosophyScene from "@/components/scenes/PhilosophyScene";
 import ContactScene from "@/components/scenes/ContactScene";
 import SceneProgress from "@/components/SceneProgress";
-import LoadingScreen from "@/components/LoadingScreen";
 import CinematicMotion from "@/components/CinematicMotion";
-export default function Home(){return <><a className="skip-link" href="#about">Skip to content</a><Navigation/><LoadingScreen/><main><HeroScene/><AboutScene/><EngineeringUniverse/><ProjectUniverse/><JourneyScene/><EducationScene/><PhilosophyScene/><ContactScene/></main><SceneProgress/><CinematicMotion/></>}
+export default function Home() {
+  return (
+    <>
+      <a className="skip-link" href="#about">
+        Skip to content
+      </a>
+      <Navigation />
+      <main>
+        <HeroScene />
+        <AboutScene />
+        <EngineeringUniverse />
+        <ProjectUniverse />
+        <JourneyScene />
+        <EducationScene />
+        <PhilosophyScene />
+        <ContactScene />
+      </main>
+      <SceneProgress />
+      <CinematicMotion />
+    </>
+  );
+}

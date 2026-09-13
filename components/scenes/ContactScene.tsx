@@ -1,4 +1,89 @@
-import {ArrowUpRight,ArrowUp} from "lucide-react";
+import { ArrowUpRight, ArrowUp } from "lucide-react";
 import SceneLabel from "@/components/SceneLabel";
-import {socials} from "@/data/socials";
-export default function ContactScene(){const links=[{name:'Email',href:socials.email?`mailto:${socials.email}`:null},{name:'LinkedIn',href:socials.linkedin},{name:'GitHub',href:socials.github},{name:'Resume',href:socials.resume}];return <section id="contact" className="contact section-pad" data-scene="08" aria-labelledby="contact-title"><SceneLabel name="The next chapter starts here" number="08"/><div className="contact-main"><h2 id="contact-title" data-reveal>LET'S BUILD<br/>SOMETHING<br/><span className="amber">MEANINGFUL.</span></h2><div className="contact-aside" data-reveal><span className="contact-star" aria-hidden="true">✳</span><div className="contact-reach"><p>Open to Software Engineering<br/>and AI opportunities.</p><a className="contact-phone" href={`tel:${socials.phone}`}>{socials.phoneLabel}</a></div><p className="eyebrow">BASED IN INDIA.<br/>THINKING BEYOND BOUNDARIES.</p></div></div><div className="contact-links">{links.map(link=>link.href?<a key={link.name} href={link.href} target={link.name==='Email'?undefined:'_blank'} rel={link.name==='Email'?undefined:'noopener noreferrer'}>{link.name}<ArrowUpRight strokeWidth={1}/></a>:<span className="contact-pending" key={link.name}>{link.name}<span>To be added</span></span>)}</div><div className="end-credits"><div><strong>SANTHOSH KUMAR REDDY</strong><span>Software Engineer · AI Developer</span></div><p>Designed & engineered by Santhosh Kumar Reddy<br/>© 2026</p><a className="back-top" href="#home" aria-label="Back to top"><ArrowUp size={20}/></a></div></section>}
+import { socials } from "@/data/socials";
+
+export default function ContactScene() {
+  const links = [
+    { name: "Email", href: socials.email ? `mailto:${socials.email}` : null },
+    { name: "LinkedIn", href: socials.linkedin },
+    { name: "GitHub", href: socials.github },
+    { name: "Resume", href: socials.resume },
+  ];
+
+  return (
+    <section
+      id="contact"
+      className="contact section-pad"
+      data-scene="08"
+      aria-labelledby="contact-title"
+    >
+      <SceneLabel name="The next chapter starts here" number="08" />
+      <div className="contact-main">
+        <h2 id="contact-title">
+          <span className="line-mask">
+            <span>LET&apos;S BUILD</span>
+          </span>{" "}
+          <span className="line-mask">
+            <span>SOMETHING</span>
+          </span>{" "}
+          <span className="line-mask amber">
+            <span>MEANINGFUL.</span>
+          </span>
+        </h2>
+        <div className="contact-aside">
+          <span className="contact-star" aria-hidden="true">
+            ✳
+          </span>
+          <div className="contact-reach">
+            <p>
+              Open to Software Engineering
+              <br />
+              and AI opportunities.
+            </p>
+            <a className="contact-phone" href={`tel:${socials.phone}`}>
+              {socials.phoneLabel}
+            </a>
+          </div>
+          <p className="eyebrow">
+            BASED IN INDIA.
+            <br />
+            THINKING BEYOND BOUNDARIES.
+          </p>
+        </div>
+      </div>
+      <div className="contact-links">
+        {links.map((link) =>
+          link.href ? (
+            <a
+              key={link.name}
+              href={link.href}
+              target={link.name === "Email" ? undefined : "_blank"}
+              rel={link.name === "Email" ? undefined : "noopener noreferrer"}
+            >
+              {link.name}
+              <ArrowUpRight strokeWidth={1} aria-hidden="true" />
+            </a>
+          ) : (
+            <span className="contact-pending" key={link.name}>
+              {link.name}
+              <span>To be added</span>
+            </span>
+          ),
+        )}
+      </div>
+      <div className="end-credits">
+        <div>
+          <strong>SANTHOSH KUMAR REDDY</strong>
+          <span>Software Engineer · AI Developer</span>
+        </div>
+        <p>
+          Designed &amp; engineered by Santhosh Kumar Reddy
+          <br />© 2026
+        </p>
+        <a className="back-top" href="#home" aria-label="Back to top">
+          <ArrowUp size={20} aria-hidden="true" />
+        </a>
+      </div>
+    </section>
+  );
+}

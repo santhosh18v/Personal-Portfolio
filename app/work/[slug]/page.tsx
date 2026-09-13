@@ -1,12 +1,214 @@
-import type {Metadata} from "next";
-import {notFound} from "next/navigation";
-import {ArrowLeft,ArrowUpRight,ArrowRight} from "lucide-react";
+import Link from "next/link";
+import CinematicMotion from "@/components/CinematicMotion";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { ArrowLeft, ArrowUpRight, ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import ProjectVisual from "@/components/ProjectVisual";
-import {projects} from "@/data/projects";
-import {siteUrl} from "@/data/socials";
-import type {CSSProperties} from "react";
-type Props={params:Promise<{slug:string}>};
-export function generateStaticParams(){return projects.map(p=>({slug:p.id}))}
-export async function generateMetadata({params}:Props):Promise<Metadata>{const{slug}=await params;const project=projects.find(p=>p.id===slug);if(!project)return {title:'Project not found | Santhosh'};return {title:`${project.title} — ${project.subtitle} | Santhosh`,description:project.description,alternates:{canonical:`${siteUrl}/work/${project.id}`},openGraph:{title:`${project.title} | Santhosh`,description:project.description,url:`${siteUrl}/work/${project.id}`,type:'article'},twitter:{card:'summary',title:`${project.title} | Santhosh`,description:project.description}}}
-export default async function ProjectPage({params}:Props){const{slug}=await params;const index=projects.findIndex(p=>p.id===slug);if(index<0)notFound();const project=projects[index];const next=projects[(index+1)%projects.length];return <><a className="skip-link" href="#overview">Skip to project overview</a><Navigation detail/><main className={`case-study ${project.id}`} style={{'--project-accent':project.accent} as CSSProperties}><header className="case-hero"><a className="case-back" href={`/#${project.id}`}><ArrowLeft size={16}/> Selected work</a><p className="eyebrow">PROJECT {project.number} / {project.discipline}</p><h1>{project.title}</h1><p className="case-subtitle">{project.subtitle}</p><div className="case-screen"><ProjectVisual id={project.id}/></div></header><div className="case-layout"><aside className="case-contents"><p className="eyebrow">IN THIS PROJECT</p><nav aria-label="Case study contents">{[['overview','Overview'],['problem','The problem'],['why','Why I built it'],['architecture','Architecture'],['technology','Technology'],['challenges','Engineering challenges'],['features','Features'],['learning','What I learned']].map(([id,label])=><a key={id} href={`#${id}`}>{label}</a>)}</nav></aside><div className="case-article"><section id="overview"><p className="eyebrow">01 / OVERVIEW</p><h2>From idea to system.</h2><p className="case-lead">{project.description}</p></section><section id="problem"><p className="eyebrow">02 / THE PROBLEM</p><h2>A reason to build.</h2><p>{project.problem}</p></section><section id="why"><p className="eyebrow">03 / WHY I BUILT IT</p><h2>The question behind the code.</h2><p>{project.motivation}</p></section><section id="architecture"><p className="eyebrow">04 / ARCHITECTURE</p><h2>How the pieces connect.</h2><p className="architecture-note">A high-level view of the main responsibilities.</p><ol className="architecture-flow">{project.architecture.map((step,i)=><li key={step.label}><span>0{i+1}</span><div><h3>{step.label}</h3><p>{step.detail}</p></div>{i<project.architecture.length-1&&<ArrowRight size={19} className="architecture-arrow"/>}</li>)}</ol></section><section id="technology"><p className="eyebrow">05 / TECHNOLOGY</p><h2>Tools with a purpose.</h2><ul className="case-tech">{project.technologies.map(t=><li key={t}>{t}</li>)}</ul></section><section id="challenges"><p className="eyebrow">06 / ENGINEERING CHALLENGES</p><h2>The work beneath the surface.</h2><div className="challenge-list">{project.challenges.map(c=><div key={c.title}><h3>{c.title}</h3><p>{c.body}</p></div>)}</div></section><section id="features"><p className="eyebrow">07 / FEATURES</p><h2>What the system brings together.</h2><ul className="feature-list">{project.features.map((f,i)=><li key={f}><span>0{i+1}</span>{f}</li>)}</ul></section><section id="learning"><p className="eyebrow">08 / WHAT I LEARNED</p><h2>Beyond the implementation.</h2><p>{project.learning}</p><div className="project-actions">{project.github&&<a className="text-link" href={project.github} target="_blank" rel="noopener noreferrer">View source on GitHub <ArrowUpRight/></a>}{project.live&&<a className="text-link" href={project.live} target="_blank" rel="noopener noreferrer">View live demo <ArrowUpRight/></a>}</div>{!project.github&&!project.live&&<p className="case-source-pending">Project link to be added.</p>}</section></div></div><a className="case-next" href={`/work/${next.id}`}><span className="eyebrow">NEXT PROJECT / {next.number}</span><span>{next.title}<ArrowUpRight strokeWidth={1}/></span></a><footer className="case-footer"><a href="/#work">All selected work</a><span>© 2026 SANTHOSH KUMAR REDDY</span><a href="/#contact">Let's connect <ArrowUpRight size={15}/></a></footer></main></>}
+import { projects } from "@/data/projects";
+import { siteUrl } from "@/data/socials";
+import type { CSSProperties } from "react";
+type Props = { params: Promise<{ slug: string }> };
+export function generateStaticParams() {
+  return projects.map((p) => ({ slug: p.id }));
+}
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.id === slug);
+  if (!project) return { title: "Project not found | Santhosh" };
+  return {
+    title: `${project.title} — ${project.subtitle} | Santhosh`,
+    description: project.description,
+    alternates: { canonical: `${siteUrl}/work/${project.id}` },
+    openGraph: {
+      title: `${project.title} | Santhosh`,
+      description: project.description,
+      url: `${siteUrl}/work/${project.id}`,
+      type: "article",
+      images: [
+        {
+          url: "/images/santhosh-suit.webp",
+          width: 1672,
+          height: 941,
+          alt: `${project.title} — a project by Santhosh Kumar Reddy`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/images/santhosh-suit.webp"],
+      title: `${project.title} | Santhosh`,
+      description: project.description,
+    },
+  };
+}
+export default async function ProjectPage({ params }: Props) {
+  const { slug } = await params;
+  const index = projects.findIndex((p) => p.id === slug);
+  if (index < 0) notFound();
+  const project = projects[index];
+  const next = projects[(index + 1) % projects.length];
+  return (
+    <>
+      <a className="skip-link" href="#overview">
+        Skip to project overview
+      </a>
+      <Navigation detail />
+      <main
+        className={`case-study ${project.id}`}
+        style={{ "--project-accent": project.accent } as CSSProperties}
+      >
+        <header className="case-hero">
+          <Link className="case-back" href="/#work">
+            <ArrowLeft size={16} aria-hidden="true" /> Selected work
+          </Link>
+          <p className="eyebrow">
+            PROJECT {project.number} / {project.discipline}
+          </p>
+          <h1>{project.title}</h1>
+          <p className="case-subtitle">{project.subtitle}</p>
+          <div className="case-screen">
+            <ProjectVisual id={project.id} />
+          </div>
+        </header>
+        <div className="case-layout">
+          <aside className="case-contents">
+            <p className="eyebrow">IN THIS PROJECT</p>
+            <nav aria-label="Case study contents">
+              {[
+                ["overview", "Overview"],
+                ["problem", "The problem"],
+                ["why", "Why I built it"],
+                ["architecture", "Architecture"],
+                ["technology", "Technology"],
+                ["challenges", "Engineering challenges"],
+                ["features", "Features"],
+                ["learning", "What I learned"],
+              ].map(([id, label]) => (
+                <a key={id} href={`#${id}`}>
+                  {label}
+                </a>
+              ))}
+            </nav>
+          </aside>
+          <div className="case-article">
+            <section id="overview" tabIndex={-1}>
+              <p className="eyebrow">01 / OVERVIEW</p>
+              <h2>From idea to system.</h2>
+              <p className="case-lead">{project.description}</p>
+            </section>
+            <section id="problem">
+              <p className="eyebrow">02 / THE PROBLEM</p>
+              <h2>A reason to build.</h2>
+              <p>{project.problem}</p>
+            </section>
+            <section id="why">
+              <p className="eyebrow">03 / WHY I BUILT IT</p>
+              <h2>The question behind the code.</h2>
+              <p>{project.motivation}</p>
+            </section>
+            <section id="architecture">
+              <p className="eyebrow">04 / ARCHITECTURE</p>
+              <h2>How the pieces connect.</h2>
+              <p className="architecture-note">
+                A high-level view of the main responsibilities.
+              </p>
+              <ol className="architecture-flow">
+                {project.architecture.map((step, i) => (
+                  <li key={step.label}>
+                    <span>0{i + 1}</span>
+                    <div>
+                      <h3>{step.label}</h3>
+                      <p>{step.detail}</p>
+                    </div>
+                    {i < project.architecture.length - 1 && (
+                      <ArrowRight size={19} className="architecture-arrow" />
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </section>
+            <section id="technology">
+              <p className="eyebrow">05 / TECHNOLOGY</p>
+              <h2>Tools with a purpose.</h2>
+              <ul className="case-tech">
+                {project.technologies.map((t) => (
+                  <li key={t}>{t}</li>
+                ))}
+              </ul>
+            </section>
+            <section id="challenges">
+              <p className="eyebrow">06 / ENGINEERING CHALLENGES</p>
+              <h2>The work beneath the surface.</h2>
+              <div className="challenge-list">
+                {project.challenges.map((c) => (
+                  <div key={c.title}>
+                    <h3>{c.title}</h3>
+                    <p>{c.body}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <section id="features">
+              <p className="eyebrow">07 / FEATURES</p>
+              <h2>What the system brings together.</h2>
+              <ul className="feature-list">
+                {project.features.map((f, i) => (
+                  <li key={f}>
+                    <span>0{i + 1}</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </section>
+            <section id="learning">
+              <p className="eyebrow">08 / WHAT I LEARNED</p>
+              <h2>Beyond the implementation.</h2>
+              <p>{project.learning}</p>
+              <div className="project-actions">
+                {project.github && (
+                  <a
+                    className="text-link"
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View source on GitHub <ArrowUpRight />
+                  </a>
+                )}
+                {project.live && (
+                  <a
+                    className="text-link"
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View live demo <ArrowUpRight />
+                  </a>
+                )}
+              </div>
+              {!project.github && !project.live && (
+                <p className="case-source-pending">Project link to be added.</p>
+              )}
+            </section>
+          </div>
+        </div>
+        <Link className="case-next" href={`/work/${next.id}`}>
+          <span className="eyebrow">NEXT PROJECT / {next.number}</span>
+          <span>
+            {next.title}
+            <ArrowUpRight strokeWidth={1} />
+          </span>
+        </Link>
+        <footer className="case-footer">
+          <Link href="/#work">All selected work</Link>
+          <span>© 2026 SANTHOSH KUMAR REDDY</span>
+          <Link href="/#contact">
+            Let&apos;s connect <ArrowUpRight size={15} aria-hidden="true" />
+          </Link>
+        </footer>
+      </main>
+      <CinematicMotion />
+    </>
+  );
+}
